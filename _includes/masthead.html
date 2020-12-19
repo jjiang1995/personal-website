@@ -4,36 +4,23 @@
   {% assign metadata_styles = 'd-flex flex-items-center mb-3' %}
 {% endif %}
 
-<img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 150px;">
-<h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">{% if user.name %}{{ user.name }}{% else %}{{ user.login }}{% endif %}</h1>
-<p class="mb-3 f4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
-  {{ user.bio }}
-</p>
+
+<h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">Jianan Jiang</h1>
 
 {% if include.metadata %}
-  <div class="f4 mb-6">
-    {% if user.name %}
+  <div class="f4 mb-6 details">
       <div class="{{ metadata_styles }}">
         {% octicon mark-github height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:GitHub %}
-        <a href="https://github.com/{{ user.login }}" {% if site.style == 'dark' %}class="text-white"{% endif %}>
-          @{{ user.login }}
+        <a href="https://github.com/jjiang1995" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+          @jjiang1995
         </a>
       </div>
-    {% endif %}
-    {% if user.email %}
       <div class="{{ metadata_styles }}">
         {% octicon mail height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:email %}
-        <a href="mailto:{{ user.email }}" {% if site.style == 'dark' %}class="text-white"{% endif %}>
-          {{ user.email }}
+        <a href="mailto:i@jjiang.me" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+          i@jjiang.me
         </a>
       </div>
-    {% endif %}
-    {% if user.location %}
-      <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
-        {% octicon location height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Location %}
-        {{ user.location }}
-      </div>
-    {% endif %}
     {% if site.social_media %}
       <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
         {% for account in site.social_media %}
@@ -50,5 +37,11 @@
     {% if user.hireable %}
       <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
     {% endif %}
+    <footer class="copyright">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+      <br/>
+      <small lang="en">Unless specified otherwise, all original contents are licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>.</small><br/>
+      <small lang=zh-Hans-CN>若无特殊注明，原创内容遵循<a lang="en" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA</a>来使用。</small>
+    </footer>
   </div>
 {% endif %}

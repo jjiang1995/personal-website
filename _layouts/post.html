@@ -30,7 +30,11 @@
       </div>
     {% endif %}
   {% endif %}
-  <div class="article">
+  {% if page.lang %}
+  <div class="article" lang="{{page.lang}}">
+  {% else %}
+  <div class = "article">
+  {% endif %}
     {{ content }}
   </div>
 {% endcapture %}
