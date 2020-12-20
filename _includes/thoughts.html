@@ -1,9 +1,19 @@
-<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>My Thoughts</h2>
-<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Articles I've written.</p>
 <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
-  {% for post in site.posts limit: 6 %}
-    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-      {% include post-card.html %}
-    </div>
+  {% for post in site.posts%}
+  <div>
+
+    <h2>
+     <a href="{{ BASE_PATH }}{{ post.url }}" style="text-decoration: none;">{{ post.title }}  </a>
+     <h4>{{post.date | date_to_long_string}}</h4> </h2>
+
+
+    {% assign paragraphs = post.content | split:'</h2>' %}
+    {{ paragraphs[1] | strip_html | truncatewords:80 }}
+    <p>
+    <a href="{{ BASE_PATH }}{{ post.url }}">Read more...</a>
+    </p>
+   </div>
+   <hr/>
+
   {% endfor %}
 </div>
