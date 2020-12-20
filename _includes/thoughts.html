@@ -8,9 +8,15 @@
 
 
     {% assign paragraphs = post.content | split:'</h2>' %}
-    {{ paragraphs[1] | strip_html | truncatewords:80 }}
+    {% if post.lang %}
+    <p lang="{{post.lang}}">
+    {% else %}
     <p>
-    <a href="{{ BASE_PATH }}{{ post.url }}">Read more...</a>
+    {% endif %}
+    {{ paragraphs[1] | strip_html | truncatewords:80 }}……
+    </p>
+    <p>
+    <a href="{{ BASE_PATH }}{{ post.url }}">Read more</a>
     </p>
    </div>
    <hr/>
