@@ -3,7 +3,7 @@
   <div>
 
     <h2>
-     <a href="{{ BASE_PATH }}{{ post.url }}" style="text-decoration: none;">{{ post.title }}  </a>
+     <a href="{{ BASE_PATH }}{{ post.url }}" style="text-decoration: none;">{{ post.title | markdownify | remove: '<p>' | remove: '</p>' }}  </a>
      <h4>{{post.date | date_to_long_string}}</h4> </h2>
 
 
@@ -13,7 +13,12 @@
     {% else %}
     <p>
     {% endif %}
-    {{ paragraphs[1] | strip_html | truncatewords:80 }}……
+    
+    {% if post.lang == "zh-Hans-CN" %}
+    {{ post.excerpt | strip_html | truncatewords:2 }}
+    {% else %}
+    {{ post.excerpt | strip_html | truncatewords:80 }}
+    {% endif %}
     </p>
     <p>
     <a href="{{ BASE_PATH }}{{ post.url }}">Read more</a>
