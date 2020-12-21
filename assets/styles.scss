@@ -103,3 +103,15 @@ td, .header__item {
   width: 100%;
   max-width: 600px;
 }
+
+.social svg{
+  fill: #959da5;
+}
+
+// Social media icon
+svg.linkedin:hover {
+  fill: #2867b2;
+}
+svg.rss:hover {
+  fill: #f26522;
+}
